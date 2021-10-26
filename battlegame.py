@@ -19,20 +19,17 @@ character = input("Choose your character: ")
 
 while True:
 
-    if character == ("1" or "wizard"):
-        print("wizard")
+    if character == "1" or character == "wizard":
         character = wizard
         my_hp = wizard_hp
         my_damage = wizard_damage
         break
-    if character == ("2" or "elf"):
-        print("elf")
+    if character == "2" or character == "elf":
         character = elf
         my_hp = elf_hp
         my_damage = elf_damage
         break
-    if character == ("3" or "human"):
-        print("human")
+    if character == "3" or character == "human":
         character = human
         my_hp = human_hp
         my_damage = human_damage
@@ -41,6 +38,23 @@ while True:
         print("Unknown character")
         break
 
-print("You have chosen " + character)
+print("You have chosen the character: " + character)
 print("health: " + str(my_hp))
 print("damage: " + str(my_damage))
+
+while True:
+    dragon_hp = dragon_hp - my_damage
+    print("The", character, "damaged the Dragon!")
+    print("The Dragon's hitpoints are now: ", dragon_hp)
+
+    if dragon_hp <= 0:
+        print("The Dragon has lost the battle")
+        break
+
+    my_hp = my_hp - dragon_damage
+    print("The Dragon has damaged the", character)
+    print("The", character + "'s", "hitpoints are now: ", my_hp)
+
+    if my_hp <= 0:
+        print("The", character, "has lost the battle.")
+        break
